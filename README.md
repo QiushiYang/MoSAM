@@ -1,5 +1,4 @@
 <div align="center">
-<img align="left" width="100" height="100" alt="">
 
 # MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection
 
