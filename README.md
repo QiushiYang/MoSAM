@@ -1,5 +1,5 @@
 <div align="center">
-<img align="left" width="100" height="100" src="https://github.com/user-attachments/assets/1834fc25-42ef-4237-9feb-53a01c137e83" alt="">
+<img align="left" width="100" height="100" alt="">
 
 # MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection
 
