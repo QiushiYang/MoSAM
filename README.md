@@ -7,11 +7,42 @@
 [Tongyi Lab, Alibaba](https://tongyi.aliyun.com/welcome) 
 </div>
 
-[[Arxiv]](https://github.com/QiushiYang/MoSAM) [[Project Page]](https://github.com/QiushiYang/MoSAM)
+<a href="https://github.com/QiushiYang/MoSAM"><img src='https://img.shields.io/badge/arXiv-MoSAM-red' alt='Paper PDF'></a>
+<a href='https://qiushiyang.github.io/MoSAM/'><img src='https://img.shields.io/badge/Project_Page-MoSAM-green' alt='Project Page'></a>
+
 
 This repository is the official implementation of MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection
 
-## Getting Started
+## 💡 Abstract
+
+The recent Segment Anything Model 2 (SAM2) has demonstrated exceptional capabilities in interactive object segmentation for both images and videos. However, as a foundational model on interactive segmentation, SAM2 performs segmentation directly based on mask memory from the past six frames, leading to two significant challenges.
+Firstly, during inference in videos, objects may disappear since SAM2 relies solely on memory without accounting for object motion information, which limits its long-range object tracking capabilities.
+Secondly, its memory is constructed from fixed past frames, making it susceptible to challenges associated with object disappearance or occlusion, due to potentially inaccurate segmentation results in memory.
+To address these problems, we present MoSAM, incorporating two key strategies to integrate object motion cues into the model and establish more reliable feature memory.
+Firstly, we propose Motion-Guided Prompting (MGP), which represents the object motion in both sparse and dense manners, then injects them into SAM2 through a set of motion-guided prompts. MGP enables the model to adjust its focus towards the direction of motion, thereby enhancing the object tracking capabilities.
+Furthermore, acknowledging that past segmentation results may be inaccurate, we devise a Spatial-Temporal Memory Selection (ST-MS) mechanism that dynamically identifies frames likely to contain accurate segmentation in both pixel- and frame-level. By eliminating potentially inaccurate mask predictions from memory, we can leverage more reliable memory features to exploit similar regions for improving segmentation results.
+Extensive experiments on various benchmarks of video object segmentation and video instance segmentation demonstrate that our MoSAM achieves state-of-the-art results compared to other competitors.
+
+## 📚 Method
+
+<p align="center">
+<img src="assets/overview_new.jpg" width="88%" />
+</p>
+
+We present MoSAM, a unified framework that synergistically integrates Motion-Guided Prompt (MGP) and Spatial-Temporal Memory Selection (ST-MS) to enhance motion-aware segmentation with reliable memory management.
+To provide motion cues for the model, facilitating superior object tracking and segmentation, MGP captures the motion representation in both sparse and dense manners and then forecasts the subsequence object localization as future prompts.
+Considering that the SAM2 memory bank may contain unreliable frame features without objects, ST-MS is designed to adaptively pick up more reliable frame features to update the memory bank by using confidence from both temporal and spatial levels.
+
+## 🎖️ Results
+
+<p align="center">
+<img src="assets/Visualization_2_more_new.jpg" width="88%" />
+</p>
+
+Qualitative comparison on video object segmentation. (a), (c) show the results from SAM2, and (b),(d) are drawn from our MoSAM, superior in hard cases including object object disappearance and occlusion. Red boxes suggest the wrong segmentation or object object disappearance, and green boxes indicate accurate segmentation.
+
+
+## 🚀 Getting Started
 
 #### MoSAM Installation 
 
@@ -54,7 +85,7 @@ python scripts/demo.py --video_path <your_video.mp4> --txt_path <path_to_first_f
 python scripts/demo.py --video_path <your_frame_directory> --txt_path <path_to_first_frame_bbox.txt>
 ```
 
-## Acknowledgment
+## 📖 Acknowledgment
 
 MoSAM is built on top of [SAM 2](https://github.com/facebookresearch/sam2?tab=readme-ov-file) by Meta FAIR. 
 
@@ -62,7 +93,8 @@ The comparisons and this website are also inspired by the concurrent works, [SAM
 
 The VOT evaluation code is modifed from [VOT Toolkit](https://github.com/votchallenge/toolkit) by Luka Čehovin Zajc.
 
-## Citation
+
+## 🎓 Citation
 
 Please consider citing our paper and the wonderful `SAM 2` if you found our work interesting and useful.
 ```
