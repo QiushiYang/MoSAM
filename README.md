@@ -1,6 +1,6 @@
 <div align="center">
 
-# MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection
+# MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection
 
 [Qiushi Yang](https://qiushiyang.github.io/), [Yuan Yao](https://scholar.google.com/citations?user=mpwXqNoAAAAJ&hl=zh-CN), [Miaomiao Cui](https://scholar.google.com/citations?user=C-7UhS9dBroC&hl=zh-CN), [Liefeng Bo](https://scholar.google.com/citations?user=FJwtMf0AAAAJ&hl=en)
 
@@ -11,7 +11,7 @@
 <a href='https://qiushiyang.github.io/MoSAM/'><img src='https://img.shields.io/badge/Project_Page-MoSAM-green' alt='Project Page'></a>
 
 
-This repository is the official implementation of MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection
+This repository is the official implementation of MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection
 
 ## 💡 Abstract
 
@@ -109,6 +109,12 @@ Please consider citing our paper and the wonderful `SAM 2` if you found our work
   title={Towards Fine-grained Interactive Segmentation in Images and Videos},
   author={Yao, Yuan and Yang, Qiushi and Cui, Miaomiao and Bo, Liefeng},
   journal={arXiv preprint arXiv:2502.09660},
+  year={2025}
+}
+@article{arxiv_MoSAM_coming_soon,
+  title={MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection},
+  author={Yang, Qiushi and Yao, Yuan and Cui, Miaomiao and Bo, Liefeng},
+  journal={arXiv preprint arXiv:2503},
   year={2025}
 }
 ```
