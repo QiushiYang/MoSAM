@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection">
+  <meta name="description" content="MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection</title>
+  <title>MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -82,7 +82,7 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection</h1>
+          <h1 class="title is-1 publication-title">MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://qiushiyang.github.io/">Qiushi Yang</a>,</span>
@@ -155,12 +155,12 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <video id="teaser" autoplay muted loop height="100%">
-          <source src="https://storage.googleapis.com/nerfies-public/videos/teaser.mp4"
-                  type="video/mp4">
+          <!-- <source src="https://storage.googleapis.com/nerfies-public/videos/teaser.mp4" -->
+          <source src="https://github.com/QiushiYang/MoSAM/tree/web/static/images/Visualization_2_more_new.jpg"
+                  type="image/jpg">
         </video>
         <h2 class="subtitle has-text-centered">
-          <span class="dnerf">D-NeRF</span> turns selfie videos from your phone into free-viewpoint
-          portraits (<i>nerfies</i>).
+          <span class="dnerf">Qualitative comparison on video object segmentation. (a), (c) show the results from SAM2, and (b),(d) are drawn from our MoSAM, superior in hard cases including object object disappearance and occlusion. Red boxes suggest the wrong segmentation or object object disappearance, and green boxes indicate accurate segmentation.
         </h2>
       </div>
     </div>
@@ -236,14 +236,14 @@
         <div class="content has-text-justified">
           <p>
             The recent Segment Anything Model 2 (SAM2) has demonstrated exceptional capabilities in interactive object segmentation for both images and videos. However, as a foundational model on interactive segmentation, SAM2 performs segmentation directly based on mask memory from the past six frames, leading to two significant challenges.
-Firstly, during inference in videos, objects may disappear since SAM2 relies solely on memory without accounting for object motion information, which limits its long-range object tracking capabilities.
-Secondly, its memory is constructed from fixed past frames, making it susceptible to challenges associated with object disappearance or occlusion, due to potentially inaccurate segmentation results in memory.
+            Firstly, during inference in videos, objects may disappear since SAM2 relies solely on memory without accounting for object motion information, which limits its long-range object tracking capabilities.
+            Secondly, its memory is constructed from fixed past frames, making it susceptible to challenges associated with object disappearance or occlusion, due to potentially inaccurate segmentation results in memory.
           </p>
           <p>
             To address these problems, we present MoSAM, incorporating two key strategies to integrate object motion cues into the model and establish more reliable feature memory.
-Firstly, we propose Motion-Guided Prompting (MGP), which represents the object motion in both sparse and dense manners, then injects them into SAM2 through a set of motion-guided prompts. MGP enables the model to adjust its focus towards the direction of motion, thereby enhancing the object tracking capabilities.
-Furthermore, acknowledging that past segmentation results may be inaccurate, we devise a Spatial-Temporal Memory Selection (ST-MS) mechanism that dynamically identifies frames likely to contain accurate segmentation in both pixel- and frame-level. By eliminating potentially inaccurate mask predictions from memory, we can leverage more reliable memory features to exploit similar regions for improving segmentation results.
-Extensive experiments on various benchmarks of video object segmentation and video instance segmentation demonstrate that our MoSAM achieves state-of-the-art results compared to other competitors.
+            Firstly, we propose Motion-Guided Prompting (MGP), which represents the object motion in both sparse and dense manners, then injects them into SAM2 through a set of motion-guided prompts. MGP enables the model to adjust its focus towards the direction of motion, thereby enhancing the object tracking capabilities.
+            Furthermore, acknowledging that past segmentation results may be inaccurate, we devise a Spatial-Temporal Memory Selection (ST-MS) mechanism that dynamically identifies frames likely to contain accurate segmentation in both pixel- and frame-level. By eliminating potentially inaccurate mask predictions from memory, we can leverage more reliable memory features to exploit similar regions for improving segmentation results.
+            Extensive experiments on various benchmarks of video object segmentation and video instance segmentation demonstrate that our MoSAM achieves state-of-the-art results compared to other competitors.
           </p>
         </div>
       </div>
@@ -251,8 +251,41 @@ Extensive experiments on various benchmarks of video object segmentation and vid
   </div>
   <!--/ Abstract. -->
 
-  <!-- Paper video. -->
+  <!-- Method. -->
   <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-2">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+          The recent Segment Anything Model 2 (SAM2) has demonstrated exceptional capabilities in interactive object segmentation for both images and videos. However, as a foundational model on interactive segmentation, SAM2 performs segmentation directly based on mask memory from the past six frames, leading to two significant challenges.
+          Firstly, during inference in videos, objects may disappear since SAM2 relies solely on memory without accounting for object motion information, which limits its long-range object tracking capabilities.
+          Secondly, its memory is constructed from fixed past frames, making it susceptible to challenges associated with object disappearance or occlusion, due to potentially inaccurate segmentation results in memory.
+        </p>
+        <p>
+          To address these problems, we present MoSAM, incorporating two key strategies to integrate object motion cues into the model and establish more reliable feature memory.
+          Firstly, we propose Motion-Guided Prompting (MGP), which represents the object motion in both sparse and dense manners, then injects them into SAM2 through a set of motion-guided prompts. MGP enables the model to adjust its focus towards the direction of motion, thereby enhancing the object tracking capabilities.
+          Furthermore, acknowledging that past segmentation results may be inaccurate, we devise a Spatial-Temporal Memory Selection (ST-MS) mechanism that dynamically identifies frames likely to contain accurate segmentation in both pixel- and frame-level. By eliminating potentially inaccurate mask predictions from memory, we can leverage more reliable memory features to exploit similar regions for improving segmentation results.
+          Extensive experiments on various benchmarks of video object segmentation and video instance segmentation demonstrate that our MoSAM achieves state-of-the-art results compared to other competitors.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Method. -->
+
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-2">Image</h2>
+      <div class="publication-video">
+        <source src="https://github.com/QiushiYang/MoSAM/tree/web/static/images/overview_new.jpg"
+                  type="image/jpg">
+        <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+      </div>
+    </div>
+  </div>
+  <!-- Paper video. -->
+  <!-- <div class="columns is-centered has-text-centered">
     <div class="column is-two-thirds">
       <h2 class="title is-2">Video</h2>
       <div class="publication-video">
@@ -260,7 +293,7 @@ Extensive experiments on various benchmarks of video object segmentation and vid
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
     </div>
-  </div>
+  </div> -->
   <!--/ Paper video. -->
 </section>
 
@@ -377,7 +410,7 @@ Extensive experiments on various benchmarks of video object segmentation and vid
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{arxiv_coming_soon
   author    = {Qiushi Yang, Yuan Yao, Miaomiao Cui, Liefeng Bo},
-  title     = {MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection},
+  title     = {MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection},
   journal   = {arXiv},
   year      = {2025.03},
 }</code></pre>
