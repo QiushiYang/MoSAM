@@ -1,18 +1,48 @@
-<<<<<<< HEAD
 <div align="center">
 
-# MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection
+# MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection
 
 [Qiushi Yang](https://qiushiyang.github.io/), [Yuan Yao](https://scholar.google.com/citations?user=mpwXqNoAAAAJ&hl=zh-CN), [Miaomiao Cui](https://scholar.google.com/citations?user=C-7UhS9dBroC&hl=zh-CN), [Liefeng Bo](https://scholar.google.com/citations?user=FJwtMf0AAAAJ&hl=en)
 
 [Tongyi Lab, Alibaba](https://tongyi.aliyun.com/welcome) 
 </div>
 
-[[Arxiv]](https://github.com/QiushiYang/MoSAM) [[Project Page]](https://github.com/QiushiYang/MoSAM)
+<a href="https://github.com/QiushiYang/MoSAM"><img src='https://img.shields.io/badge/arXiv-MoSAM-red' alt='Paper PDF'></a>
+<a href='https://qiushiyang.github.io/MoSAM/'><img src='https://img.shields.io/badge/Project_Page-MoSAM-green' alt='Project Page'></a>
 
-This repository is the official implementation of MoSAM: Motion-Guided Segment Anything for Videos with Spatial-Temporal Memory Selection
 
-## Getting Started
+This repository is the official implementation of MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection
+
+## 💡 Abstract
+
+The recent Segment Anything Model 2 (SAM2) has demonstrated exceptional capabilities in interactive object segmentation for both images and videos. However, as a foundational model on interactive segmentation, SAM2 performs segmentation directly based on mask memory from the past six frames, leading to two significant challenges.
+Firstly, during inference in videos, objects may disappear since SAM2 relies solely on memory without accounting for object motion information, which limits its long-range object tracking capabilities.
+Secondly, its memory is constructed from fixed past frames, making it susceptible to challenges associated with object disappearance or occlusion, due to potentially inaccurate segmentation results in memory.
+To address these problems, we present MoSAM, incorporating two key strategies to integrate object motion cues into the model and establish more reliable feature memory.
+Firstly, we propose Motion-Guided Prompting (MGP), which represents the object motion in both sparse and dense manners, then injects them into SAM2 through a set of motion-guided prompts. MGP enables the model to adjust its focus towards the direction of motion, thereby enhancing the object tracking capabilities.
+Furthermore, acknowledging that past segmentation results may be inaccurate, we devise a Spatial-Temporal Memory Selection (ST-MS) mechanism that dynamically identifies frames likely to contain accurate segmentation in both pixel- and frame-level. By eliminating potentially inaccurate mask predictions from memory, we can leverage more reliable memory features to exploit similar regions for improving segmentation results.
+Extensive experiments on various benchmarks of video object segmentation and video instance segmentation demonstrate that our MoSAM achieves state-of-the-art results compared to other competitors.
+
+## 📚 Method
+
+<p align="center">
+<img src="assets/overview_new.jpg" width="88%" />
+</p>
+
+We present MoSAM, a unified framework that synergistically integrates Motion-Guided Prompt (MGP) and Spatial-Temporal Memory Selection (ST-MS) to enhance motion-aware segmentation with reliable memory management.
+To provide motion cues for the model, facilitating superior object tracking and segmentation, MGP captures the motion representation in both sparse and dense manners and then forecasts the subsequence object localization as future prompts.
+Considering that the SAM2 memory bank may contain unreliable frame features without objects, ST-MS is designed to adaptively pick up more reliable frame features to update the memory bank by using confidence from both temporal and spatial levels.
+
+## 🎖️ Results
+
+<p align="center">
+<img src="assets/Visualization_2_more_new.jpg" width="88%" />
+</p>
+
+Qualitative comparison on video object segmentation. (a), (c) show the results from SAM2, and (b),(d) are drawn from our MoSAM, superior in hard cases including object object disappearance and occlusion. Red boxes suggest the wrong segmentation or object object disappearance, and green boxes indicate accurate segmentation.
+
+
+## 🚀 Getting Started
 
 #### MoSAM Installation 
 
@@ -55,7 +85,7 @@ python scripts/demo.py --video_path <your_video.mp4> --txt_path <path_to_first_f
 python scripts/demo.py --video_path <your_frame_directory> --txt_path <path_to_first_frame_bbox.txt>
 ```
 
-## Acknowledgment
+## 📖 Acknowledgment
 
 MoSAM is built on top of [SAM 2](https://github.com/facebookresearch/sam2?tab=readme-ov-file) by Meta FAIR. 
 
@@ -63,7 +93,8 @@ The comparisons and this website are also inspired by the concurrent works, [SAM
 
 The VOT evaluation code is modifed from [VOT Toolkit](https://github.com/votchallenge/toolkit) by Luka Čehovin Zajc.
 
-## Citation
+
+## 🎓 Citation
 
 Please consider citing our paper and the wonderful `SAM 2` if you found our work interesting and useful.
 ```
@@ -80,22 +111,10 @@ Please consider citing our paper and the wonderful `SAM 2` if you found our work
   journal={arXiv preprint arXiv:2502.09660},
   year={2025}
 }
-```
-=======
-# Nerfies
-
-This is the repository that contains source code for the [Nerfies website](nerfies.github.io).
-
-If you find Nerfies useful for your work please cite:
-```
-@article{park2020nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Deformable Neural Radiance Fields},
-  journal   = {arXiv preprint arXiv:2011.12948},
-  year      = {2020},
+@article{arxiv_MoSAM_coming_soon,
+  title={MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection},
+  author={Yang, Qiushi and Yao, Yuan and Cui, Miaomiao and Bo, Liefeng},
+  journal={arXiv preprint arXiv:2503},
+  year={2025}
 }
 ```
-
-# Website License
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
->>>>>>> 49c0730 (Add README.)
