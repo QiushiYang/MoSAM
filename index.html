@@ -131,7 +131,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/QiushiYang/MoSAM" class="external-link button is-normal is-rounded is-dark" disabled>
+                <a href="https://github.com/QiushiYang/MoSAM" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
@@ -147,9 +147,21 @@
   </div>
 </section>
 
-<section class="hero">
+<!-- <section class="hero">
     <div class="image-container">
-        <img src="static/images/Visualization_2_more_new.jpg" alt="Qualitative comparison" style="max-width: 80%; height: auto; margin: 20px 0;">
+        <img src="static/images/Visualization_2_more_new.jpg" alt="Qualitative comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
+    </div>
+</section> -->
+<section class="hero">
+    <div class="container">
+        <div class="image-container">
+            <figure class="image">
+                <img src="static/images/Visualization_2_more_new.jpg" alt="Qualitative comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
+                <figcaption style="text-align: center; max-width: 100%; margin: 10px 0;">
+                    Qualitative comparison on video object segmentation. (a), (c) show the results from SAM2, and (b),(d) are drawn from our MoSAM, superior in hard cases including object object disappearance and occlusion. Red boxes suggest the wrong segmentation or object object disappearance, and green boxes indicate accurate segmentation.
+                </figcaption>
+            </figure>
+        </div>
     </div>
 </section>
 
@@ -262,14 +274,16 @@
 <section class="section">
     <div class="container">
         <div class="content">
-            <!-- <h2 class="title">Results</h2> -->
             <h2 class="title has-text-centered">Results</h2>
             <div class="image-container">
-                <img src="static/images/Results_over_baseline.jpg" alt="Results comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
-                    <!-- <p style="text-align: center;">Segmentation results of our MoSAM over the baseline SAM2.</p> -->
-                    <p>
-                        Segmentation results of our MoSAM over the baseline SAM2.
-                    </p>
+                <div class="columns is-centered">
+                    <div class="column is-half">
+                        <img src="static/images/Results_over_baseline.jpg" alt="Results comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
+                        <p class="has-text-centered">
+                            Performance comparison between the baseline SAM2 and MoSAM across various model sizes, including Tiny (-T), Small (-S), Base (-B+) and Large (-L). Result gains over the baseline by our method are in red.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
