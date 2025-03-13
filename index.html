@@ -1,263 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection</title>
+    <style>
+        .center-text {
+            text-align: center;
+        }
+        
+        .image-container {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .video-item {
+            width: 48%;
+            text-align: center;
+        }
+        
+        .video-item video {
+            width: 100%;
+            height: auto;
+        }
+        
+        .video-description {
+            margin: 10px 0;
+            text-align: center;
+        }
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+        .section-title {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <!-- Add first image before abstract -->
+    <div class="image-container">
+        <img src="static/images/Visualization_2_more_new.jpg" alt="Qualitative comparison">
+    </div>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://qiushiyang.github.io/">Qiushi Yang</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=mpwXqNoAAAAJ&hl=zh-CN">Yuan Yao</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=C-7UhS9dBroC&hl=zh-CN">Miaomiao Cui</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=FJwtMf0AAAAJ&hl=en">Liefeng Bo</a>,
-            </span>
-          </div>
+    <!-- Your existing abstract section -->
+    <div class="abstract">
+        <!-- Your abstract content -->
+    </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Tongyi Lab, Alibaba</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <span class="link-block">
-                <a href="https://github.com/QiushiYang/MoSAM" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/QiushiYang/MoSAM" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/QiushiYang/MoSAM" class="external-link button is-normal is-rounded is-dark" disabled>
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </a>
-              </span>
-            </div>
-
-          </div>
+    <!-- Method section with overview image -->
+    <div class="method">
+        <div class="image-container">
+            <img src="static/images/overview_new.jpg" alt="Method overview">
         </div>
-      </div>
+        <p>We present MoSAM, a unified f...</p>
     </div>
-  </div>
-</section>
 
-<section class="hero teaser">
-  <div class="hero-body">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <video id="teaser" autoplay muted loop height="100%">
-          <source src="./static/images/Visualization_2_more_new.jpg" type="image/jpg">
-        </video>
-        <h2 class="subtitle has-text-centered">
-          <span class="dnerf">Qualitative comparison on video object segmentation. (a), (c) show the results from SAM2, and (b),(d) are drawn from our MoSAM, superior in hard cases including object object disappearance and occlusion. Red boxes suggest the wrong segmentation or object object disappearance, and green boxes indicate accurate segmentation.
-        </h2>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-two-thirds">
-        <h2 class="title is-2">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            The recent Segment Anything Model 2 (SAM2) has demonstrated exceptional capabilities in interactive object segmentation for both images and videos. However, as a foundational model on interactive segmentation, SAM2 performs segmentation directly based on mask memory from the past six frames, leading to two significant challenges.
-            Firstly, during inference in videos, objects may disappear since SAM2 relies solely on memory without accounting for object motion information, which limits its long-range object tracking capabilities.
-            Secondly, its memory is constructed from fixed past frames, making it susceptible to challenges associated with object disappearance or occlusion, due to potentially inaccurate segmentation results in memory.
-          </p>
-          <p>
-            To address these problems, we present MoSAM, incorporating two key strategies to integrate object motion cues into the model and establish more reliable feature memory.
-            Firstly, we propose Motion-Guided Prompting (MGP), which represents the object motion in both sparse and dense manners, then injects them into SAM2 through a set of motion-guided prompts. MGP enables the model to adjust its focus towards the direction of motion, thereby enhancing the object tracking capabilities.
-            Furthermore, acknowledging that past segmentation results may be inaccurate, we devise a Spatial-Temporal Memory Selection (ST-MS) mechanism that dynamically identifies frames likely to contain accurate segmentation in both pixel- and frame-level. By eliminating potentially inaccurate mask predictions from memory, we can leverage more reliable memory features to exploit similar regions for improving segmentation results.
-            Extensive experiments on various benchmarks of video object segmentation and video instance segmentation demonstrate that our MoSAM achieves state-of-the-art results compared to other competitors.
-          </p>
+    <!-- Video section -->
+    <h2 class="section-title">Video</h2>
+    
+    <!-- First row of videos -->
+    <div class="video-container">
+        <div class="video-item">
+            <p class="video-description">Video segmentation results of SAM2</p>
+            <video controls>
+                <source src="static/videos/case1-sam2.avi" type="video/avi">
+                Your browser does not support the video tag.
+            </video>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-two-thirds">
-        <h2 class="title is-2">Method</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present MoSAM, a unified framework that synergistically integrates Motion-Guided Prompting (MGP) and Spatial-Temporal Memory Selection (ST-MS) to enhance motion-aware segmentation with reliable memory management.
-          </p>
-          <p>
-            To provide motion cues for the model, facilitating superior object tracking and segmentation, MGP captures the motion representation in both sparse and dense manners and then forecasts the subsequence object localization as future prompts. Considering that the SAM2 memory bank may contain unreliable frame features without objects, ST-MS is designed to adaptively pick up more reliable frame features to update the memory bank by using confidence from both temporal and spatial levels.
-          </p>
+        <div class="video-item">
+            <p class="video-description">Video segmentation results of our MoSAM</p>
+            <video controls>
+                <source src="static/videos/case1-MoSAM.avi" type="video/avi">
+                Your browser does not support the video tag.
+            </video>
         </div>
-      </div>
     </div>
-<!-- <<<<<<< HEAD -->
-    <!--/ Matting. -->
 
-    <!-- Animation. -->
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-2">Animation</h2> -->
-
-        <!-- Interpolating. -->
-        <!-- <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
+    <!-- Second row of videos -->
+    <div class="video-container">
+        <div class="video-item">
+            <p class="video-description">Video segmentation results of SAM2</p>
+            <video controls>
+                <source src="static/videos/case2-sam2.avi" type="video/avi">
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-2 has-text-centered">
-            <img src="https://storage.googleapis.com/nerfies-public/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-2 has-text-centered">
-            <img src="https://storage.googleapis.com/nerfies-public/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
+        <div class="video-item">
+            <p class="video-description">Video segmentation results of our MoSAM</p>
+            <video controls>
+                <source src="static/videos/case2-sam2.avi" type="video/avi">
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <br/> -->
-        <!--/ Interpolating. -->
+    </div>
 
+    <!-- Results section -->
+    <h2 class="section-title">Results</h2>
+    <div class="image-container">
+        <img src="static/images/Results_over_baseline.jpg" alt="Results comparison">
+        <p>Segmentation results of our MoSAM over the baseline SAM2.</p>
+    </div>
 
-      <!-- </div>
-    </div> -->
-    <!--/ Animation. -->
-<!-- ======= -->
-<!-- >>>>>>> backup-web -->
-  <!-- </div>
-</section> -->
-
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-half">
-        <h2 class="title is-2">Video</h2>
-        <div class="content">
-          <p>Video segmentation results of SAM2</p>
-          <video id="sam2-video" autoplay controls muted loop width="100%">
-            <source src="/static/videos/case1-sam2.avi" type="video/avi">
-            Your browser does not support the video tag.
-          </video>
-          <p>Video segmentation results of our MoSAM</p>
-          <video id="mosam-video" autoplay controls muted loop width="100%">
-            <source src="/static/videos/case1-MoSAM.avi" type="video/avi">
-            Your browser does not support the video tag.
-          </video>
+    <section class="section" id="BibTeX">
+        <div class="container content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>@article{arxiv_coming_soon
+        author    = {Qiushi Yang, Yuan Yao, Miaomiao Cui, Liefeng Bo},
+        title     = {MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection},
+        journal   = {arXiv},
+        year      = {2025.03},
+      }</code></pre>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="BibTeX">
-  <div class="container content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{arxiv_coming_soon
-  author    = {Qiushi Yang, Yuan Yao, Miaomiao Cui, Liefeng Bo},
-  title     = {MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection},
-  journal   = {arXiv},
-  year      = {2025.03},
-}</code></pre>
-  </div>
-</section>
-
-<!-- <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="https://storage.googleapis.com/nerfies-public/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="content">
-      <p>
-      This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-      </p>
-      <p>
-        Please feel free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website, we just ask that you link back to this page in the footer of the website.
-      </p>
-    </div>
-  </div>
-</footer>
 
 </body>
-</html> -->
+</html>
