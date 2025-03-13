@@ -149,7 +149,7 @@
 
 <section class="hero">
     <div class="image-container">
-        <img src="static/images/Visualization_2_more_new.jpg" alt="Qualitative comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
+        <img src="static/images/Visualization_2_more_new.jpg" alt="Qualitative comparison" style="max-width: 80%; height: auto; margin: 20px 0;">
     </div>
 </section>
 
@@ -157,7 +157,8 @@
 <section class="section">
     <div class="container">
         <div class="content">
-            <h2 class="title">Abstract</h2>
+            <!-- <h2 class="title">Abstract</h2> -->
+            <h2 class="title has-text-centered">Abstract</h2>
             <div class="content has-text-justified">
                 <p>
                   The recent Segment Anything Model 2 (SAM2) has demonstrated exceptional capabilities in interactive object segmentation for both images and videos. However, as a foundational model on interactive segmentation, SAM2 performs segmentation directly based on mask memory from the past six frames, leading to two significant challenges.
@@ -179,7 +180,8 @@
 <section class="section">
     <div class="container">
         <div class="content">
-            <h2 class="title">Method</h2>
+            <!-- <h2 class="title">Method</h2> -->
+            <h2 class="title has-text-centered">Method</h2>
             <div class="image-container">
                 <img src="static/images/overview_new.jpg" alt="Method overview" style="max-width: 100%; height: auto; margin: 20px 0;">
                     <p>
@@ -196,7 +198,7 @@
 <section class="section">
     <div class="container">
         <div class="content">
-            <h2 class="title has-text-centered">Video</h2>
+            <h2 class="title has-text-centered">Videos</h2>
             
             <!-- First row of videos -->
             <div style="display: flex; justify-content: space-between; margin: 20px 0;">
@@ -210,7 +212,7 @@
                 <div style="width: 48%; text-align: center;">
                     <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our MoSAM</p>
                     <video controls style="width: 100%;">
-                        <source src="static/videos/case1-MoSAM.avi" type="video/avi">
+                        <source src="static/videos/case1-MoSAM.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
@@ -228,11 +230,30 @@
                 <div style="width: 48%; text-align: center;">
                     <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our MoSAM</p>
                     <video controls style="width: 100%;">
-                        <source src="static/videos/case2-sam2.mp4" type="video/mp4">
+                        <source src="static/videos/case2-MoSAM.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
             </div>
+
+            <!-- Thrid row of videos -->
+            <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                <div style="width: 48%; text-align: center;">
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of SAM2</p>
+                    <video controls style="width: 100%;">
+                        <source src="static/videos/case3-SAM2.mp4" type="video/mp4">
+                        <!-- Your browser does not support the video tag. -->
+                    </video>
+                </div>
+                <div style="width: 48%; text-align: center;">
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our MoSAM</p>
+                    <video controls style="width: 100%;">
+                        <source src="static/videos/case3-MoSAM.mp4" type="video/mp4">
+                        <!-- Your browser does not support the video tag. -->
+                    </video>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -241,14 +262,19 @@
 <section class="section">
     <div class="container">
         <div class="content">
-            <h2 class="title">Results</h2>
+            <!-- <h2 class="title">Results</h2> -->
+            <h2 class="title has-text-centered">Results</h2>
             <div class="image-container">
                 <img src="static/images/Results_over_baseline.jpg" alt="Results comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
-                <p style="text-align: center;">Segmentation results of our MoSAM over the baseline SAM2.</p>
+                    <!-- <p style="text-align: center;">Segmentation results of our MoSAM over the baseline SAM2.</p> -->
+                    <p>
+                        Segmentation results of our MoSAM over the baseline SAM2.
+                    </p>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="section" id="BibTeX">
     <div class="container content">
