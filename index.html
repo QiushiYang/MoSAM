@@ -103,7 +103,7 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <video id="teaser" autoplay muted loop height="100%">
-          <source src="https://github.com/QiushiYang/MoSAM/tree/web/static/images/Visualization_2_more_new.jpg" type="image/jpg">
+          <source src="./static/images/Visualization_2_more_new.jpg" type="image/jpg">
         </video>
         <h2 class="subtitle has-text-centered">
           <span class="dnerf">Qualitative comparison on video object segmentation. (a), (c) show the results from SAM2, and (b),(d) are drawn from our MoSAM, superior in hard cases including object object disappearance and occlusion. Red boxes suggest the wrong segmentation or object object disappearance, and green boxes indicate accurate segmentation.
@@ -145,29 +145,24 @@
         <h2 class="title is-2">Method</h2>
         <div class="content has-text-justified">
           <p>
-            The recent Segment Anything Model 2 (SAM2) has demonstrated exceptional capabilities in interactive object segmentation for both images and videos. However, as a foundational model on interactive segmentation, SAM2 performs segmentation directly based on mask memory from the past six frames, leading to two significant challenges.
-            Firstly, during inference in videos, objects may disappear since SAM2 relies solely on memory without accounting for object motion information, which limits its long-range object tracking capabilities.
-            Secondly, its memory is constructed from fixed past frames, making it susceptible to challenges associated with object disappearance or occlusion, due to potentially inaccurate segmentation results in memory.
+            We present MoSAM, a unified framework that synergistically integrates Motion-Guided Prompting (MGP) and Spatial-Temporal Memory Selection (ST-MS) to enhance motion-aware segmentation with reliable memory management.
           </p>
           <p>
-            To address these problems, we present MoSAM, incorporating two key strategies to integrate object motion cues into the model and establish more reliable feature memory.
-            Firstly, we propose Motion-Guided Prompting (MGP), which represents the object motion in both sparse and dense manners, then injects them into SAM2 through a set of motion-guided prompts. MGP enables the model to adjust its focus towards the direction of motion, thereby enhancing the object tracking capabilities.
-            Furthermore, acknowledging that past segmentation results may be inaccurate, we devise a Spatial-Temporal Memory Selection (ST-MS) mechanism that dynamically identifies frames likely to contain accurate segmentation in both pixel- and frame-level. By eliminating potentially inaccurate mask predictions from memory, we can leverage more reliable memory features to exploit similar regions for improving segmentation results.
-            Extensive experiments on various benchmarks of video object segmentation and video instance segmentation demonstrate that our MoSAM achieves state-of-the-art results compared to other competitors.
+            To provide motion cues for the model, facilitating superior object tracking and segmentation, MGP captures the motion representation in both sparse and dense manners and then forecasts the subsequence object localization as future prompts. Considering that the SAM2 memory bank may contain unreliable frame features without objects, ST-MS is designed to adaptively pick up more reliable frame features to update the memory bank by using confidence from both temporal and spatial levels.
           </p>
         </div>
       </div>
     </div>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
     <!--/ Matting. -->
 
     <!-- Animation. -->
-    <div class="columns is-centered">
+    <!-- <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-2">Animation</h2>
+        <h2 class="title is-2">Animation</h2> -->
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <!-- <h3 class="title is-4">Interpolating states</h3>
         <div class="content has-text-justified">
           <p>
             We can also animate the scene by interpolating the deformation latent codes of two input
@@ -197,31 +192,33 @@
             <p class="is-bold">End Frame</p>
           </div>
         </div>
-        <br/>
+        <br/> -->
         <!--/ Interpolating. -->
 
 
-      </div>
-    </div>
+      <!-- </div>
+    </div> -->
     <!--/ Animation. -->
-=======
->>>>>>> backup-web
-  </div>
-</section>
+<!-- ======= -->
+<!-- >>>>>>> backup-web -->
+  <!-- </div>
+</section> -->
 
 <section class="section">
   <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-two-thirds">
+    <div class="columns is-centered">
+      <div class="column is-half">
         <h2 class="title is-2">Video</h2>
-        <div class="content has-text-justified">
+        <div class="content">
           <p>Video segmentation results of SAM2</p>
-          <video id="sam2-video" autoplay controls muted loop height="100%">
-            <source src="videos/case1-sam2.avi" type="video/avi">
+          <video id="sam2-video" autoplay controls muted loop width="100%">
+            <source src="/static/videos/case1-sam2.avi" type="video/avi">
+            Your browser does not support the video tag.
           </video>
           <p>Video segmentation results of our MoSAM</p>
-          <video id="mosam-video" autoplay controls muted loop height="100%">
-            <source src="videos/case1-MoSAM.avi" type="video/avi">
+          <video id="mosam-video" autoplay controls muted loop width="100%">
+            <source src="/static/videos/case1-MoSAM.avi" type="video/avi">
+            Your browser does not support the video tag.
           </video>
         </div>
       </div>
